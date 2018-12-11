@@ -1,4 +1,4 @@
-#include "include/Application.h"
+#include "Application.h"
 #include <stdio.h>
 
 namespace Hazel
@@ -14,7 +14,7 @@ namespace Hazel
     }
     void Application::Run()
     {
-        printf("test");
+        while(true);
     }
 
 }

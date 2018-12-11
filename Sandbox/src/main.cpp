@@ -24,7 +24,11 @@ extern Hazel::Application* Hazel::CreateApplication()
 
 int main()
 {
-    printf("TEst!");
+    Hazel::Log::Init();
+    HZ_CORE_WARN("Log started");
+    auto a = 100;
+    HZ_INFO("TEST variable={0}", a);
+
     auto program = Hazel::CreateApplication();
     program->Run();
     delete program;

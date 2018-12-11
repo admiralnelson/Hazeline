@@ -8,7 +8,12 @@
 // -- Entry Point
 #include "Hazel/EntryPoint.h"
 
-#include "Hazel/include/Application.h"
+
+// -- Log System
+#include "Hazel/Log.h"
+// -- Application
+#include "Hazel/Application.h"
+
 
 
 #include "Hazel/Test.h"
