@@ -1,5 +1,6 @@
-../obj/Debug-linux-x86_64/Hazel/Log.o: src/Hazel/Log.cpp src/Hazel/Log.h \
- src/Hazel/Core.h vendor/spdlog/include/spdlog/spdlog.h \
+../obj/Debug-linux-x86_64/Hazel/Log.o: src/Hazel/Log.cpp \
+ src/Hazel/../../hzpch.h src/Hazel/Log.h src/Hazel/Core.h \
+ vendor/spdlog/include/spdlog/spdlog.h \
  vendor/spdlog/include/spdlog/common.h \
  vendor/spdlog/include/spdlog/tweakme.h \
  vendor/spdlog/include/spdlog/details/null_mutex.h \
@@ -22,7 +23,11 @@
  vendor/spdlog/include/spdlog/sinks/ansicolor_sink.h \
  vendor/spdlog/include/spdlog/details/console_globals.h \
  vendor/spdlog/include/spdlog/version.h \
- vendor/spdlog/include/spdlog/sinks/stdout_color_sinks.h
+ vendor/spdlog/include/spdlog/sinks/stdout_color_sinks.h \
+ vendor/spdlog/include/spdlog/fmt/ostr.h \
+ vendor/spdlog/include/spdlog/fmt/bundled/ostream.h
+
+src/Hazel/../../hzpch.h:
 
 src/Hazel/Log.h:
 
@@ -75,3 +80,7 @@ vendor/spdlog/include/spdlog/details/console_globals.h:
 vendor/spdlog/include/spdlog/version.h:
 
 vendor/spdlog/include/spdlog/sinks/stdout_color_sinks.h:
+
+vendor/spdlog/include/spdlog/fmt/ostr.h:
+
+vendor/spdlog/include/spdlog/fmt/bundled/ostream.h:

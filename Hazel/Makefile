@@ -15,9 +15,11 @@ ifeq ($(config),debug)
   TARGETDIR = ../bin/Debug-linux-x86_64/Hazel
   TARGET = $(TARGETDIR)/libHazel.so
   OBJDIR = ../obj/Debug-linux-x86_64/Hazel
+  PCH = hzpch.h
+  GCH = $(OBJDIR)/$(notdir $(PCH)).gch
   DEFINES += -DHZ_PLATFORM_LINUX -DHZ_BUILD_SO -DHZ_DEBUG
   INCLUDES += -Ivendor/spdlog/include
-  FORCE_INCLUDE +=
+  FORCE_INCLUDE += -include $(OBJDIR)/$(notdir $(PCH))
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -fPIC -g
   ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -fPIC -g -std=c++17
@@ -44,9 +46,11 @@ ifeq ($(config),release)
   TARGETDIR = ../bin/Release-linux-x86_64/Hazel
   TARGET = $(TARGETDIR)/libHazel.so
   OBJDIR = ../obj/Release-linux-x86_64/Hazel
+  PCH = hzpch.h
+  GCH = $(OBJDIR)/$(notdir $(PCH)).gch
   DEFINES += -DHZ_PLATFORM_LINUX -DHZ_BUILD_SO -DHZ_RELEASE
   INCLUDES += -Ivendor/spdlog/include
-  FORCE_INCLUDE +=
+  FORCE_INCLUDE += -include $(OBJDIR)/$(notdir $(PCH))
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC
   ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC -std=c++17
@@ -73,9 +77,11 @@ ifeq ($(config),dist)
   TARGETDIR = ../bin/Dist-linux-x86_64/Hazel
   TARGET = $(TARGETDIR)/libHazel.so
   OBJDIR = ../obj/Dist-linux-x86_64/Hazel
+  PCH = hzpch.h
+  GCH = $(OBJDIR)/$(notdir $(PCH)).gch
   DEFINES += -DHZ_PLATFORM_LINUX -DHZ_BUILD_SO -DHZ_DIST
   INCLUDES += -Ivendor/spdlog/include
-  FORCE_INCLUDE +=
+  FORCE_INCLUDE += -include $(OBJDIR)/$(notdir $(PCH))
   ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC
   ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -fPIC -std=c++17
@@ -101,6 +107,7 @@ OBJECTS := \
 	$(OBJDIR)/Application.o \
 	$(OBJDIR)/Log.o \
 	$(OBJDIR)/Test.o \
+	$(OBJDIR)/hzpch.o \
 
 RESOURCES := \
 
@@ -166,6 +173,9 @@ $(OBJDIR)/Log.o: src/Hazel/Log.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/Test.o: src/Hazel/Test.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/hzpch.o: src/Hazel/hzpch.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

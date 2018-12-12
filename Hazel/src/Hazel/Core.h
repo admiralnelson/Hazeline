@@ -19,5 +19,6 @@
         #pragma warning Unknown dynamic link import/export semantics.
     #endif
 
+#define BIT(x) (1 << x)
 
 #endif // CORE_H_INCLUDED

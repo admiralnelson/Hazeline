@@ -25,7 +25,10 @@
  ../Hazel/vendor/spdlog/include/spdlog/details/console_globals.h \
  ../Hazel/vendor/spdlog/include/spdlog/version.h \
  ../Hazel/vendor/spdlog/include/spdlog/sinks/stdout_color_sinks.h \
- ../Hazel/src/Hazel/Application.h ../Hazel/src/Hazel/Test.h
+ ../Hazel/vendor/spdlog/include/spdlog/fmt/ostr.h \
+ ../Hazel/vendor/spdlog/include/spdlog/fmt/bundled/ostream.h \
+ ../Hazel/src/Hazel/Application.h ../Hazel/src/Hazel/../Events/Event.h \
+ ../Hazel/src/Hazel/../Events/../Hazel/Core.h ../Hazel/src/Hazel/Test.h
 
 ../Hazel/src/Hazel.h:
 
@@ -83,6 +86,14 @@
 
 ../Hazel/vendor/spdlog/include/spdlog/sinks/stdout_color_sinks.h:
 
+../Hazel/vendor/spdlog/include/spdlog/fmt/ostr.h:
+
+../Hazel/vendor/spdlog/include/spdlog/fmt/bundled/ostream.h:
+
 ../Hazel/src/Hazel/Application.h:
+
+../Hazel/src/Hazel/../Events/Event.h:
+
+../Hazel/src/Hazel/../Events/../Hazel/Core.h:
 
 ../Hazel/src/Hazel/Test.h:

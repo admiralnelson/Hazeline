@@ -1,5 +1,5 @@
+#include "../../hzpch.h"
 #include "Test.h"
-#include <stdio.h>
 
 
 namespace Hazel
